@@ -40,9 +40,9 @@ typedef enum {
     BOXGPSRESCUE,
     BOXID_FLIGHTMODE_LAST = BOXGPSRESCUE,
 
-// When new flight modes are added, the parameter group version for 'modeActivationConditions' in src/main/fc/rc_modes.c has to be incremented to ensure that the RC modes configuration is reset.
+    // When new flight modes are added, the parameter group version for 'modeActivationConditions' in src/main/fc/rc_modes.c has to be incremented to ensure that the RC modes configuration is reset.
 
-    // RCMODE flags
+        // RCMODE flags
     BOXANTIGRAVITY,
     BOXHEADADJ,
     BOXCAMSTAB,
@@ -142,14 +142,14 @@ typedef struct modeActivationProfile_s {
 #define IS_RANGE_USABLE(range) ((range)->startStep < (range)->endStep)
 
 bool IS_RC_MODE_ACTIVE(boxId_e boxId);
-void rcModeUpdate(boxBitmask_t *newState);
+void rcModeUpdate(boxBitmask_t* newState);
 
 bool airmodeIsEnabled(void);
 
-bool isRangeActive(uint8_t auxChannelIndex, const channelRange_t *range);
+bool isRangeActive(uint8_t auxChannelIndex, const channelRange_t* range);
 void updateActivatedModes(void);
 bool isModeActivationConditionPresent(boxId_e modeId);
 bool isModeActivationConditionLinked(boxId_e modeId);
 void removeModeActivationCondition(boxId_e modeId);
-bool isModeActivationConditionConfigured(const modeActivationCondition_t *mac, const modeActivationCondition_t *emptyMac);
+bool isModeActivationConditionConfigured(const modeActivationCondition_t* mac, const modeActivationCondition_t* emptyMac);
 void analyzeModeActivationConditions(void);
